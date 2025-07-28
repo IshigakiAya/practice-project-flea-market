@@ -80,6 +80,13 @@ php artisan cache:clear
 - 会員登録画面：http://localhost/register
 - phpMyAdmin：http://localhost:8080/
 
+### テストユーザー情報
+
+ログインには以下のアカウントを使用してください。
+
+- メールアドレス：test@example.com
+- パスワード：password
+
 ## 使用技術（実行環境）
 
 - php 8.3.0

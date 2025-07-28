@@ -26,7 +26,7 @@
     aspect-ratio: 1 / 1;
     /* 画像を正方形に */
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .product-overview__image {
@@ -50,7 +50,7 @@
 
 .product-overview__price {
     margin: 20px 0;
-    font-size: 22px;
+    font-size: 30px;
 }
 
 .payment-method-section {
@@ -70,7 +70,8 @@
 .form__select {
     padding: 5px;
     width: 40%;
-    height: 30px;
+    height: 35px;
+    font-size: 18px;
     border: 1px solid #918d8d;
     border-radius: 3px;
 }
@@ -87,10 +88,12 @@
 
 .edit-address {
     text-decoration: none;
+    font-size: 24px;
 }
 
 .address-display {
     margin-left: 50px;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -104,11 +107,12 @@
     border-collapse: collapse;
     box-sizing: border-box;
     text-align: center;
+    justify-content: center;
 }
 
 .summary-label {
     padding: 40px 30px;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: normal;
     white-space: nowrap;
     border-bottom: 1px solid;
@@ -116,7 +120,7 @@
 
 .summary-value {
     padding: 40px 30px;
-    font-size: 22px;
+    font-size: 25px;
     white-space: nowrap;
     border-bottom: 1px solid;
 }
@@ -137,7 +141,7 @@
     border-radius: 5px;
     background: rgb(255, 47, 0);
     color: white;
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -149,15 +153,11 @@
     }
 
     .form {
-        gap: 30px;
+        gap: 20px;
     }
 
     .purchase-page__column--left {
-        width: 65%;
-    }
-
-    .purchase-page__column--right {
-        width: 35%;
+        width: 60%;
     }
 
     .product-overview__image-wrapper {
@@ -170,18 +170,35 @@
         margin-left: 25px;
     }
 
+    .product-overview__price {
+        font-size: 25px;
+    }
+
     .form__select {
         width: 70%;
+        font-size: 16px;
+    }
+
+    .edit-address {
+        font-size: 18px;
+    }
+
+    .address-display {
+        font-size: 18px;
+    }
+
+    .purchase-page__column--right {
+        width: 40%;
     }
 
     .summary-label {
-        padding: 20px 15px;
-        font-size: 14px;
+        padding: 30px 20px;
+        font-size: 17px;
     }
 
     .summary-value {
-        padding: 20px 15px;
-        font-size: 18px;
+        padding: 30px 20px;
+        font-size: 19px;
     }
 
     .form__button {
@@ -190,6 +207,6 @@
 
     .form__button-submit {
         height: 40px;
-        font-size: 16px;
+        font-size: 18px;
     }
 }

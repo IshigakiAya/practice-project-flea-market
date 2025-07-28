@@ -14,7 +14,7 @@
         {{-- 商品画像 --}}
         <div class="form__group">
             <h3 class="form__group-title">
-                <span class="form__label--item">商品画像</span>
+                <label class="form__label--item">商品画像</label>
             </h3>
 
             <div class="form__group-image">
@@ -33,7 +33,7 @@
             {{-- カテゴリー --}}
             <div class="form__group">
                 <h3 class="form__group-title">
-                    <span class="form__label--item">カテゴリー</span>
+                    <label class="form__label--item">カテゴリー</label>
                 </h3>
                 <div class="form__group-content">
                     <div class="form__category-buttons">
@@ -53,7 +53,7 @@
             </div>
             <div class="form__group">
                 <h3 class="form__group-title">
-                    <span class="form__label--item">商品の状態</span>
+                    <label class="form__label--item">商品の状態</label>
                 </h3>
                 <div class="form__group-content">
                     <div class="form__input--text">
@@ -77,7 +77,7 @@
             <h2 class="form__title">商品名と説明</h2>
             <div class="form__group">
                 <h3 class="form__group-title">
-                    <span class="form__label--item">商品名</span>
+                    <label class="form__label--item">商品名</label>
                 </h3>
                 <div class="form__group-content">
                     <div class="form__input--text">
@@ -92,7 +92,7 @@
             </div>
             <div class="form__group">
                 <h3 class="form__group-title">
-                    <span class="form__label--item">ブランド名</span>
+                    <label class="form__label--item">ブランド名</label>
                 </h3>
                 <div class="form__group-content">
                     <div class="form__input--text">
@@ -108,7 +108,7 @@
         </div>
         <div class="form__group">
             <h3 class="form__group-title">
-                <span class="form__label--item">商品の説明</span>
+                <label class="form__label--item">商品の説明</label>
             </h3>
             <div class="form__group-content">
                 <div class="form__input--text">
@@ -123,7 +123,7 @@
         </div>
         <div class="form__group">
             <h3 class="form__group-title">
-                <span class="form__label--item">販売価格</span>
+                <label class="form__label--item">販売価格</label>
             </h3>
             <div class="form__group-content">
                 <div class="form__input--text">

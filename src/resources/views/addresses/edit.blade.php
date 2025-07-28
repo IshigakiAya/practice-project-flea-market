@@ -7,7 +7,7 @@
 @section('content')
 <div class="form__wrapper">
     <div class="form__heading">
-        <h2>住所の変更</h2>
+        <h1>住所の変更</h1>
     </div>
     <form class="form" action="{{ route('addresses.update', ['item' => $item->id]) }}" method="POST">
         @csrf
@@ -15,7 +15,7 @@
         {{-- 郵便番号 --}}
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">郵便番号</span>
+                <label class="form__label--item">郵便番号</label>
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
@@ -32,7 +32,7 @@
         {{-- 住所 --}}
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">住所</span>
+                <label class="form__label--item">住所</label>
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
@@ -48,7 +48,7 @@
         {{-- 建物名 --}}
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">建物名</span>
+                <label class="form__label--item">建物名</label>
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">

@@ -113,15 +113,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 850px) {
-    .form__heading-title {
-        font-size: 25px;
-    }
-
-    .form__title {
-        font-size: 22px;
-    }
-
-    .form__group-title {
-        font-size: 18px;
+    .form__container {
+        font-size: 80%;
     }
 }

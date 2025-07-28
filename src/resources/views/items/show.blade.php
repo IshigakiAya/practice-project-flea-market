@@ -84,7 +84,7 @@
                 @endforeach
             @endif
             <div class="comments-section__form">
-                <p class="form-title">商品へのコメント</p>
+                <label class="form-title">商品へのコメント</label>
                 <form class="form" action="{{ route('comments.store', ['item' => $item->id]) }}" method="POST">
                     @csrf
                     <input type="hidden" name="item_id" value="{{ $item->id }}" />

@@ -14,7 +14,7 @@
                     <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" class="product-overview__image"/>
                 </div>
                 <div class="product-overview__details">
-                    <h2 class="product-overview__name">{{ $item->name }}</h2>
+                    <h1 class="product-overview__name">{{ $item->name }}</h1>
                     <p class="product-overview__price">
                         <span class="yen-symbol">&#165</span>
                         {{ number_format($item->price) }}
@@ -23,7 +23,7 @@
             </div>
 
             <div class="payment-method-section">
-                <h3 class="section-title">支払い方法</h3>
+                <h2 class="section-title">支払い方法</h2>
                 <div class="form-group">
                     <select class="form__select" name="payment_method" required>
                         <option value="" disabled selected>選択してください</option>
@@ -40,7 +40,7 @@
 
             <div class="delivery-address-section">
                 <div class="section-header">
-                    <h3 class="section-title">配送先</h3>
+                    <h2 class="section-title">配送先</h2>
                     <a href="{{ route('addresses.edit',['item' => $item->id]) }}" class="edit-address">変更する</a>
                 </div>
                 <div class="address-display">

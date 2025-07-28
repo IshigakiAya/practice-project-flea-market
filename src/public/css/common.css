@@ -35,7 +35,7 @@ main {
 }
 
 .header__logo-image {
-    height: 25px;
+    height: 30px;
 }
 
 .header__search {
@@ -96,7 +96,7 @@ main {
     border: none;
     color: white;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 5px;
     text-decoration: none;
     font-size: inherit;
     /* 親要素のフォントサイズを継承 */
@@ -108,7 +108,7 @@ main {
 .header-nav__link {
     text-decoration: none;
     color: white;
-    padding: 5px 10px;
+    padding: 5px;
     display: inline-block;
 }
 

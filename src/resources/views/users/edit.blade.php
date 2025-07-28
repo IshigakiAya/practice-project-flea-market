@@ -7,7 +7,7 @@
 @section('content')
 <div class="form__container">
     <div class="form__heading">
-        <h2>プロフィール設定</h2>
+        <h1>プロフィール設定</h1>
     </div>
     <form class="form" action="{{ route('users.update') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -35,7 +35,7 @@
         {{-- ユーザー名 --}}
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">ユーザー名</span>
+                <label class="form__label--item">ユーザー名</label>
             </div>
             <div class="form__group-input">
                 <input type="text" name="name" value="{{ old('name', $user->name) }}" class="form__input--text"/>
@@ -49,7 +49,7 @@
         {{-- 郵便番号 --}}
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">郵便番号</span>
+                <label class="form__label--item">郵便番号</label>
             </div>
             <div class="form__group-input">
                 <input type="text" name="postal_code" value="{{ old('postal_code', $address->postal_code ?? '') }}" class="form__input--text"/>
@@ -64,7 +64,7 @@
         {{-- 住所 --}}
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">住所</span>
+                <label class="form__label--item">住所</label>
             </div>
             <div class="form__group-input">
                 <input type="text" name="address" value="{{ old('address', $address->address ?? '') }}"class="form__input--text"/>
@@ -78,7 +78,7 @@
         {{-- 建物名 --}}
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">建物名</span>
+                <label class="form__label--item">建物名</label>
             </div>
             <div class="form__group-input">
                 <input type="text" name="building" value="{{ old('building', $address->building ?? '') }}" class="form__input--text"/>

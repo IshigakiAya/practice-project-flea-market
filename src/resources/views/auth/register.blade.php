@@ -7,13 +7,13 @@
 @section('content')
 <div class="form__wrapper">
     <div class="form__heading">
-        <h2>会員登録</h2>
+        <h1>会員登録</h1>
     </div>
     <form class="form" action="/register" method="POST" novalidate>
         @csrf
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">ユーザー名</span>
+                <label class="form__label--item">ユーザー名</label>
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
@@ -28,7 +28,7 @@
         </div>
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">メールアドレス</span>
+                <label class="form__label--item">メールアドレス</label>
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
@@ -43,7 +43,7 @@
         </div>
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">パスワード</span>
+                <label class="form__label--item">パスワード</label>
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
@@ -58,7 +58,7 @@
         </div>
         <div class="form__group">
             <div class="form__group-title">
-                <span class="form__label--item">確認用パスワード</span>
+                <label class="form__label--item">確認用パスワード</label>
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">

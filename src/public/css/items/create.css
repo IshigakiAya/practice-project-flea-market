@@ -1,0 +1,127 @@
+.form__container {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 100%;
+}
+
+.form__heading {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.form {
+    margin: 0 auto;
+    width: 45%;
+}
+
+.form__group {
+    margin-bottom: 5px;
+}
+
+.form__group-title {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.form__group-image {
+    width: 100%;
+    height: 130px;
+    border-radius: 3px;
+    border: 1px dotted rgb(158, 156, 156);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__input--image{
+    cursor: pointer;
+    font-size: 13px;
+    color: red;
+    border: solid;
+    border-radius: 7px;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.form__error {
+    height: 20px;
+    text-align: left;
+    color: red;
+}
+
+.form__title {
+    padding: 3px;
+    margin-top: 25px;;
+    color: rgba(106, 104, 104, 0.779);
+    border-bottom: 1px solid rgb(106, 104, 104, 0.779);
+}
+
+.form__category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 13px;
+}
+
+.category-button {
+    padding: 2px 15px;
+    margin: 10px 0px;
+    border: 1px solid red;
+    border-radius: 20px;
+    font-size: 12px;
+    color: red;
+    cursor: pointer;
+}
+
+.category-button:has(input:checked) {
+    background-color: red;
+    color: white;
+}
+
+.form__input--text input, select {
+    padding: 5px;
+    width: 100%;
+    height: 35px;
+    border: 1px solid #918d8d;
+    border-radius: 3px;
+}
+
+.form__input--text textarea {
+    padding: 5px;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #918d8d;
+    border-radius: 3px;
+}
+
+.form__button {
+    margin: 50px auto;
+}
+
+.form__button-submit {
+    padding: 5px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(255, 47, 0);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) and (max-width: 850px) {
+    .form__heading-title {
+        font-size: 25px;
+    }
+
+    .form__title {
+        font-size: 22px;
+    }
+
+    .form__group-title {
+        font-size: 18px;
+    }
+}

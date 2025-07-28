@@ -1,0 +1,77 @@
+.tabs {
+    margin: 40px 0 50px;
+    border-bottom: 1px solid gray;
+    padding-left: 150px;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: gray;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 70px;
+}
+
+.tabs a.active {
+    color: red;
+    /* アクティブなタブは文字を赤に */
+}
+
+.item-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    gap: 15px;
+}
+
+.item-card-wrapper {
+    flex-grow: 1; /* 余白があれば伸びてよい */
+    flex-shrink: 0; /* 縮まない */
+    flex-basis: calc(25% - 15px);/* 4列,gap分を引く */
+    max-width: calc(25% - 15px);
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.item-card__link {
+    text-decoration: none;
+}
+
+.item-card__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-card__image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* 画像を正方形に */
+    overflow: hidden;
+}
+
+.item-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-card__name {
+    font-size: 20px;
+    margin: 5px 0 0;
+}
+
+.item-card__status {
+    display: inline-block;
+}
+
+.status-text {
+    color: red;
+    font-size: 15px;
+}
+
+@media (min-width: 768px) and (max-width: 850px) {
+    .tabs {
+        margin: 30px 0 40px;
+        padding-left: 75px;
+    }
+}

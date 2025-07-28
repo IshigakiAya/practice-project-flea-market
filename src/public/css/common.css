@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* ビューポートの高さを最低限確保 */
+}
+
+main {
+    flex: 1;
+}
+
+.header {
+    width: 100%;
+    background-color: black;
+    align-items: center;
+    padding:10px 20px;
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.header__logo {
+    grid-column: 1;
+}
+
+.header__logo-image {
+    height: 25px;
+}
+
+.header__search {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    /* 検索フォームを中央に配置 */
+}
+
+.search-form {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    /* 検索フォームの最大幅 */
+}
+
+.search-form input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-form__button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.header__utilities {
+    grid-column: 3;
+    display: flex;
+    justify-content: flex-end;
+    /* 右寄せ */
+}
+
+.header-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-nav li {
+    display: inline-block;
+    /* 横並び */
+}
+
+/* ログアウトボタン */
+.as-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: inherit;
+    /* 親要素のフォントサイズを継承 */
+    display: inline-block;
+    /* 余白を調整しやすく */
+}
+
+/* マイページリンク */
+.header-nav__link {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+/* 出品リンク */
+.header-nav__button {
+    background-color: white;
+    color: black;
+    padding: 3px 13px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+/* タブレット用（768〜850px） */
+@media (min-width: 768px) and (max-width: 850px) {
+    .header__logo-image {
+        max-width: 180px;
+    }
+
+    .search-form {
+        max-width: 250px;
+    }
+
+    .header-nav {
+        gap: 5px;
+        font-size: 14px;
+    }
+
+    .header-nav__link,
+    .header-nav__button,
+    .as-button {
+        padding: 4px 8px;
+        font-size: 14px;
+    }
+}
+
+/* PC用（1400〜1540px） */
+@media (min-width: 1400px) and (max-width: 1540px) {
+    .header {
+        padding: 10px 30px;
+    }
+
+    .search-form {
+        max-width: 450px;
+    }
+
+    .header-nav {
+        gap: 20px;
+        font-size: 16px;
+    }
+
+    .header-nav__link,
+    .header-nav__button,
+    .as-button {
+        padding: 6px 12px;
+        font-size: 16px;
+    }
+}
+

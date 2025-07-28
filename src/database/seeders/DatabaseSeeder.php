@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use App\Models\Address;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +15,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(1)->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => bcrypt('password'),
+        ]);
+        // 1件のダミーユーザーを作成
+
+        $this->call([
+            CategoriesTableSeeder::class,
+            ItemsTableSeeder::class,
+        ]);
+
+        Address::factory(1)->create();
     }
 }

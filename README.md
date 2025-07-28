@@ -1,34 +1,34 @@
-# coachtechフリマ
+# coachtech フリマ
 
 ## 環境構築
 
-**Dockerビルド**
-1. git clone [git@github.com:IshigakiAya/practice-project-flea-market.git](git@github.com:IshigakiAya/practice-project-flea-market.git)
-2. cd practice-project-flea-market
-3. DockerDesktopアプリを立ち上げる
-4. docker-compose up -d --build
+### **Docker ビルド**
 
-> *Apple Silicon (arm64) 環境では、そのまま実行するとエラーになることがあります。エラーが発生する場合は、docker-compose.ymlファイルの「mysql」「phpmyadmin」セクションに以下のように platform を明示してください。
-``` bash
+1. git clone [git@github.com:IshigakiAya/practice-project-flea-market.git](git@github.com:IshigakiAya/practice-project-flea-market.git)
+2. docker-compose up -d --build
+
+> **Apple Silicon (arm64) 環境注意点**
+> そのまま実行するとエラーになることがあります。
+> エラーが発生する場合は、docker-compose.yml ファイルの「mysql」「phpmyadmin」セクションに以下のように `platform` を明示してください。
+
+```bash
 mysql:
     image: mysql:8.0.26
-    platform: linux/x86_64　# ← 追加
+    platform: linux/x86_64
     environment:
-
-・・・・・・
-
 phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    platform: linux/amd64  # ← 追加
+    platform: linux/amd64
     environment:
 ```
 
+### **Laravel 環境構築**
 
-**Laravel 環境構築**
 1. docker-compose exec php bash
 2. composer install
-3. 「.env.example」ファイルから「.env」ファイルを作成し、以下の環境変数を変更
-``` text
+3. .env.example から.env を作成し、以下の環境変数を設定
+
+```text
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
@@ -36,22 +36,58 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
+
 4. php artisan key:generate
 5. php artisan migrate
 6. php artisan db:seed
 7. php artisan storage:link
+8. php artisan serve
 
+### **Stripe 決済機能の設定**
 
-## 開発環境
-* 商品一覧画面（トップ画面）：http://localhost/
-* 会員登録画面：http://localhost/register
-* phpMyAdmin：http://localhost:8080/
+本アプリは Stripe を用いて商品購入の決済画面に遷移します。
+
+1. **Stripe API キーの設定**
+
+   [Stripe ダッシュボード](https://dashboard.stripe.com/test/dashboard)で開発用 API キーを取得
+
+   - 公開可能キー（Publishable key）
+   - シークレットキー（Secret key）
+
+2. **.env に以下を追記**
+
+```text
+STRIPE_KEY=pk_test_************************
+STRIPE_SECRET=sk_test_************************
+```
+
+3. **Stripe PHP ライブラリのインストール**
+
+```bash
+composer require stripe/stripe-php
+```
+
+4. **設定の反映**
+
+```bash
+php artisan config:clear
+php artisan cache:clear
+```
+
+## 開発環境 URL
+
+- 商品一覧画面（トップ画面）：http://localhost/
+- 会員登録画面：http://localhost/register
+- phpMyAdmin：http://localhost:8080/
 
 ## 使用技術（実行環境）
-* php 8.3.0
-* Laravel 8.83.29
-* MySQL 8.0.26
-* nginx 1.21.1
 
-## ER図
+- php 8.3.0
+- Laravel 8.83.29
+- MySQL 8.0.26
+- nginx 1.21.1
+- Font Awesome 6.5.2
+
+## ER 図
+
 ![ER図](er.png)

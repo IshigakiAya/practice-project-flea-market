@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_image',
     ];
 
     /**
@@ -41,4 +43,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function address(): HasOne
+    {
+        return $this->hasOne(Address::class);
+        // ユーザーに紐づく住所
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+        // 出品した商品
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+        // 購入履歴
+    }
+
+    public function likes()
+    {
+        return $this->belongsToMany(Item::class, 'likes', 'user_id', 'item_id')->withTimestamps();
+        // いいね機能
+    }
 }

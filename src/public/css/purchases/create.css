@@ -1,0 +1,195 @@
+.purchase-page-container {
+    max-width: 100%;
+    padding: 70px 60px;
+    box-sizing: border-box;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 60px;
+}
+
+.purchase-page__column--left {
+    width: 65%;
+}
+
+.product-overview {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid;
+}
+
+.product-overview__image-wrapper {
+    width: 25%;
+    aspect-ratio: 1 / 1;
+    /* 画像を正方形に */
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.product-overview__image {
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-overview__details {
+    width: 75%;
+    margin-left: 50px;
+}
+
+.product-overview__name {
+    margin: 0;
+}
+
+.yen-symbol {
+    font-size: 80%;
+    vertical-align: baseline;
+}
+
+.product-overview__price {
+    margin: 20px 0;
+    font-size: 22px;
+}
+
+.payment-method-section {
+    padding: 25px 25px 50px;
+    border-bottom: 1px solid;
+}
+
+.section-title {
+    margin-top: 0;
+}
+
+.form-group {
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.form__select {
+    padding: 5px;
+    width: 40%;
+    height: 30px;
+    border: 1px solid #918d8d;
+    border-radius: 3px;
+}
+
+.delivery-address-section {
+    padding: 25px 25px 50px;
+    border-bottom: 1px solid;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-address {
+    text-decoration: none;
+}
+
+.address-display {
+    margin-left: 50px;
+    font-weight: bold;
+}
+
+.purchase-page__column--right {
+    width: 35%;
+}
+
+.order-summary-table {
+    width: 100%;
+    border: 1px solid;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.summary-label {
+    padding: 40px 30px;
+    font-size: 18px;
+    font-weight: normal;
+    white-space: nowrap;
+    border-bottom: 1px solid;
+}
+
+.summary-value {
+    padding: 40px 30px;
+    font-size: 22px;
+    white-space: nowrap;
+    border-bottom: 1px solid;
+}
+
+.form__error {
+    color: red;
+}
+
+.form__button {
+    margin-top: 60px;
+}
+
+.form__button-submit {
+    padding: 5px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(255, 47, 0);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) and (max-width: 850px){
+    .purchase-page-container {
+        padding: 35px 30px;
+        font-size: 80%;
+    }
+
+    .form {
+        gap: 30px;
+    }
+
+    .purchase-page__column--left {
+        width: 65%;
+    }
+
+    .purchase-page__column--right {
+        width: 35%;
+    }
+
+    .product-overview__image-wrapper {
+        width: 40%;
+        margin-bottom: 20px;
+    }
+
+    .product-overview__details {
+        width: 60%;
+        margin-left: 25px;
+    }
+
+    .form__select {
+        width: 70%;
+    }
+
+    .summary-label {
+        padding: 20px 15px;
+        font-size: 14px;
+    }
+
+    .summary-value {
+        padding: 20px 15px;
+        font-size: 18px;
+    }
+
+    .form__button {
+        margin-top: 40px;
+    }
+
+    .form__button-submit {
+        height: 40px;
+        font-size: 16px;
+    }
+}

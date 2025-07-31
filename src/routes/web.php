@@ -15,8 +15,12 @@ Route::get('/', [ItemController::class, 'index'])->name('items.index');
 // 商品詳細ページ
 Route::get('/items/{item}', [ItemController::class, 'show'])->name('items.show');
 
-// --- 認証が必要なルート ---
-Route::middleware('auth')->group(function() {
+// --- 認証が必要なルート---
+Route::middleware(['auth', 'verified'])->group(function() {
+    Route::get('/dashboard', function() {
+        return view('dashboard');
+    });
+
     // 商品関連
     Route::get('/sell', [ItemController::class, 'create'])->name('items.create'); // 商品出品フォーム
     Route::post('/sell', [ItemController::class, 'store'])->name('items.store'); // 商品出品処理

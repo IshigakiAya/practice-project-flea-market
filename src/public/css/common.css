@@ -87,7 +87,6 @@ main {
 
 .header-nav li {
     display: inline-block;
-    /* 横並び */
 }
 
 /* ログアウトボタン */
@@ -99,9 +98,7 @@ main {
     padding: 5px;
     text-decoration: none;
     font-size: inherit;
-    /* 親要素のフォントサイズを継承 */
     display: inline-block;
-    /* 余白を調整しやすく */
 }
 
 /* マイページリンク */

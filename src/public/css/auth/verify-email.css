@@ -1,0 +1,41 @@
+.verify-email-container {
+    margin: 0;
+    padding: 30px;
+    max-width: 100%;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.message-wrapper {
+    margin-top: 100px;
+}
+
+.message {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.link-wrapper {
+    margin: 60px 0;
+    text-align: center;
+}
+
+.link {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: rgb(195, 194, 194);
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+.button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 20px;
+    color: blue;
+}

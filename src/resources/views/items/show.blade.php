@@ -9,8 +9,8 @@
     <div class="item-info__image-wrapper">
         <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" class="item-info__image" />
     </div>
-    <div class="item-info__content">
-        <div class="item-info__data">
+    <div class="item-info__content-wrapper">
+        <div class="item-info__data-group">
             <h1 class="item-info__data-name">{{ $item->name }}</h1>
             <p class="item-info__data-brand">
                 {{ $item->brand ?? 'ブランド名' }}
@@ -42,15 +42,15 @@
 
         <a class="item-info__purchase-button" href="{{ route('purchases.create', ['item' => $item->id]) }}">購入手続きへ</a>
 
-        <div class="item-info__description">
+        <div class="item-info__description-group">
             <h2>商品説明</h2>
             <div>{{ $item->description }}</div>
         </div>
-        <div class="item-info__details">
+        <div class="item-info__details-group">
             <h2>商品の情報</h2>
-            <table>
+            <table class="table">
                 <tr>
-                    <th>カテゴリー</th>
+                    <th class="table-head">カテゴリー</th>
                     @foreach($item->categories as $category)
                         <td class="item-category-tag">
                             {{ $category->content }}
@@ -58,13 +58,13 @@
                     @endforeach
                 </tr>
                 <tr>
-                    <th>商品の状態</th>
+                    <th class="table-head">商品の状態</th>
                     <td class="item-condition">{{ $item->condition }}</td>
                 </tr>
             </table>
         </div>
-        <div class="item-info__comments-section">
-            <h2 class="comments-section-title">コメント({{ $commentsCount }})</h2>
+        <div class="item-info__comment-group">
+            <h2 class="comment-group-title">コメント({{ $commentsCount }})</h2>
             @if($item->comments->isEmpty())
                 <p>まだコメントはありません</p>
             @else
@@ -83,7 +83,7 @@
                     </div>
                 @endforeach
             @endif
-            <div class="comments-section__form">
+            <div class="comment-group__form">
                 <label class="form-title">商品へのコメント</label>
                 <form class="form" action="{{ route('comments.store', ['item' => $item->id]) }}" method="POST">
                     @csrf

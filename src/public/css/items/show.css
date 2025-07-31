@@ -21,7 +21,7 @@
     border-radius: 3px;
 }
 
-.item-info__content {
+.item-info__content-wrapper {
     width: 50%;
     padding: 40px;
 }
@@ -95,13 +95,13 @@ h2 {
     margin-top: 40px;
 }
 
-table {
+.table {
     border-collapse: separate;
     border-spacing: 20px 15px;
     margin-left: 0;
 }
 
-th {
+.table-head {
     font-weight: bold;
     text-align: left;
     white-space: nowrap;
@@ -128,7 +128,7 @@ td {
     font-size: 15px;
 }
 
-.comments-section-title {
+.comment-group-title {
     color: gray;
 }
 
@@ -176,7 +176,7 @@ td {
     font-size: 15px;
 }
 
-.comments-section__form {
+.comment-group__form {
     width: 100%;
 }
 
@@ -235,11 +235,11 @@ td {
         padding: 10px 30px;
     }
 
-    .item-info__content {
+    .item-info__content-wrapper {
         padding: 30px;
     }
 
-    table {
+    .table {
         border-spacing: 10px 5px;
     }
 }

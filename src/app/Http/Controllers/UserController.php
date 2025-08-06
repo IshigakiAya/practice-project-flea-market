@@ -15,11 +15,11 @@ class UserController extends Controller
     public function edit()
     {
         $user = auth()->user();
-
         $address = $user->address;
 
         return view('users.edit', compact('user','address'));
     }
+
 
     public function update(ProfileRequest $request)
     {
@@ -56,6 +56,7 @@ class UserController extends Controller
 
         return redirect('/?tab=mylist');
     }
+
 
     public function show(Request $request)
     {

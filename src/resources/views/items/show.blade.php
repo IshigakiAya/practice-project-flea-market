@@ -16,7 +16,7 @@
                 {{ $item->brand ?? 'ブランド名' }}
             </p>
             <p class="item-info__data-price">
-                &#165;<span style="font-size: 30px;">{{ number_format($item->price) }}</span>(税込)
+                ¥<span style="font-size: 30px;">{{ number_format($item->price) }}</span>(税込)
             </p>
             <div class="item-info__data-meta">
                 {{-- いいねボタン --}}
@@ -48,20 +48,25 @@
         </div>
         <div class="item-info__details-group">
             <h2>商品の情報</h2>
-            <table class="table">
-                <tr>
-                    <th class="table-head">カテゴリー</th>
-                    @foreach($item->categories as $category)
-                        <td class="item-category-tag">
-                            {{ $category->content }}
-                        </td>
-                    @endforeach
-                </tr>
-                <tr>
-                    <th class="table-head">商品の状態</th>
-                    <td class="item-condition">{{ $item->condition }}</td>
-                </tr>
-            </table>
+            <div class="item-details">
+                <div class="detail-row">
+                    <div class="detail-label">カテゴリー</div>
+                    <div class="category-tags-wrapper">
+                        @foreach($item->categories as $category)
+                            <span class="item-category-tag">
+                                {{ $category->name }}
+                            </span>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <div class="detail-label">商品の状態</div>
+                    <div class="item-condition">
+                        {{ $item->condition }}
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="item-info__comment-group">
             <h2 class="comment-group-title">コメント({{ $commentsCount }})</h2>

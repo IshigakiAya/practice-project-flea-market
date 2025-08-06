@@ -83,7 +83,7 @@ php artisan cache:clear
 
 本アプリは、メール認証機能に MailHog を使用しています。
 
-- 認証誘導画面の「認証はこちら」ボタンを押すと、MailHog の Web UI(http://localhost:8025)に遷移し、受信メールを確認できます。
+- 認証誘導画面の「認証はこちら」ボタンを押すと、MailHog の [Web UI](http://localhost:8025)に遷移し、受信メールを確認できます。
 - MailHog の起動は 'docker-compose up -d' に含まれています。
 - 差出人メールアドレスは '.env' に以下のように設定してください。
 

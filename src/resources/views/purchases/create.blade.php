@@ -16,12 +16,11 @@
                 <div class="product-overview__details">
                     <h1 class="product-overview__name">{{ $item->name }}</h1>
                     <p class="product-overview__price">
-                        <span class="yen-symbol">&#165</span>
+                        <span class="yen-symbol">¥</span>
                         {{ number_format($item->price) }}
                     </p>
                 </div>
             </div>
-
             <div class="payment-method-section">
                 <h2 class="section-title">支払い方法</h2>
                 <div class="form-group">
@@ -37,7 +36,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="delivery-address-section">
                 <div class="section-header">
                     <h2 class="section-title">配送先</h2>
@@ -52,7 +50,6 @@
                 </div>
             </div>
         </div>
-
         <div class="purchase-page__column--right">
             <table class="order-summary-table">
                 <tr class="summary-row">

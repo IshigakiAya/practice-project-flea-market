@@ -75,9 +75,7 @@
 
 .item-card-wrapper {
     flex-grow: 1;
-    /* 余白があれば伸びてよい */
     flex-shrink: 0;
-    /* 縮まない */
     flex-basis: calc(25% - 15px);
     /* 4列,gap分を引く */
     max-width: calc(25% - 15px);
@@ -96,7 +94,7 @@
 
 .item-card__image-wrapper {
     width: 100%;
-    aspect-ratio: 1 / 1; /* 画像を正方形に */
+    aspect-ratio: 1 / 1;
     overflow: hidden;
 }
 

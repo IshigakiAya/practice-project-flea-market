@@ -30,9 +30,13 @@ class AddressFactory extends Factory
         // もしユーザーがまだ一人もいない場合は、ここで新しいユーザーを作成
         $userId = User::inRandomOrder()->first()->id ?? User::factory()->create()->id;
 
+        // ハイフンありの郵便番号に整形
+        $rawPostcode = $faker->postcode();
+        $formattedPostcode = substr($rawPostcode, 0, 3) . '-' . substr($rawPostcode, 3);
+
         return [
-            'user_id' => $userId, // 既存のユーザーIDと紐付ける
-            'postal_code' => $faker->postcode(),
+            'user_id' => $userId,
+            'postal_code' => $formattedPostcode,
             'address' => $faker->prefecture() . $faker->city() . $faker->streetAddress(),
             'building' => $faker->optional()->secondaryAddress(), // null許容(ランダムでnullも生成)
             'created_at' => now(),

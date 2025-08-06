@@ -11,7 +11,6 @@
     </div>
     <form class="form" action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        {{-- 商品画像 --}}
         <div class="form__group">
             <h3 class="form__group-title">
                 <label class="form__label--item">商品画像</label>
@@ -30,7 +29,7 @@
         </div>
         <div class="form__detail-section">
             <h2 class="form__title">商品の詳細</h2>
-            {{-- カテゴリー --}}
+            {{-- カテゴリー選択フォーム --}}
             <div class="form__group">
                 <h3 class="form__group-title">
                     <label class="form__label--item">カテゴリー</label>
@@ -40,7 +39,7 @@
                         @foreach ($categories as $category)
                             <label class="category-button">
                                 <input type="checkbox" name="categories[]" value="{{ $category->id }}" hidden />
-                                {{ $category->content }}
+                                {{ $category->name }}
                             </label>
                         @endforeach
                     </div>

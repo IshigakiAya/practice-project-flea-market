@@ -30,9 +30,9 @@ class Item extends Model
         // 出品者情報
     }
 
-    public function purchase()
+    public function purchases()
     {
-        return $this->hasOne(Purchase::class);
+        return $this->hasMany(Purchase::class);
         // 購入情報
     }
 

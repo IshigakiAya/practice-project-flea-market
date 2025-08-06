@@ -41,18 +41,18 @@ class PurchaseController extends Controller
             'customer_email' => Auth::user()->email,
             'success_url' => route('purchases.success', ['item' => $item->id]) . '?session_id={CHECKOUT_SESSION_ID}',
             'cancel_url' => route('purchases.cancel', ['item' => $item->id]),
-            ]);
+        ]);
 
-            // Webhookを使わないため購入処理をここで行う（購入履歴登録＋ステータス更新）
-            Purchase::create([
-                'user_id' => Auth::id(),
-                'item_id' => $item->id,
-                'address_id' => Auth::user()->address->id,
-                'payment_method' => $paymentMethod,
-            ]);
+        // Webhookを扱わないため購入処理をここで行う（購入履歴登録＋ステータス更新）
+        Purchase::create([
+            'user_id' => Auth::id(),
+            'item_id' => $item->id,
+            'address_id' => Auth::user()->address->id,
+            'payment_method' => $paymentMethod,
+        ]);
 
-            $item->status ='sold';
-            $item->save();
+        $item->status ='sold';
+        $item->save();
 
         return redirect()->away($session->url);
     }

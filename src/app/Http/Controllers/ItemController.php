@@ -6,7 +6,7 @@ use App\Models\Item;
 use App\Models\Category;
 use App\Http\Requests\ExhibitionRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; // Authファサードをインポート
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -45,7 +45,7 @@ class ItemController extends Controller
     public function show(Item $item) {
         $item = Item::with([
             'likedByUsers',
-            'comments.user',// コメントと、そのコメントを投稿したユーザー
+            'comments.user',// コメント・投稿したユーザー
             'categories',
             'user'
         ])

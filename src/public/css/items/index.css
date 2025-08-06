@@ -25,8 +25,8 @@
 }
 
 .item-card-wrapper {
-    flex-grow: 1; /* 余白があれば伸びてよい */
-    flex-shrink: 0; /* 縮まない */
+    flex-grow: 1;
+    flex-shrink: 0;
     flex-basis: calc(25% - 15px);/* 4列,gap分を引く */
     max-width: calc(25% - 15px);
     margin-bottom: 10px;

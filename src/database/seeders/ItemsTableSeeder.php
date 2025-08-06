@@ -20,8 +20,9 @@ class ItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        $userId = 1;
-        // user_id = 1 のユーザーが出品者であると仮定
+        $userId = User::all()->random()->id;
+
+        $categories = Category::all();
 
         $rawItems = [
             [
@@ -31,7 +32,7 @@ class ItemsTableSeeder extends Seeder
                 'description' => 'スタイリッシュなデザインのメンズ腕時計',
                 'condition' => '良好',
                 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Armani+Mens+Clock.jpg',
-                'category_ids' => [1, 5],
+                'category_names' => ['ファッション', 'メンズ'],
             ],
             [
                 'name' => 'HDD',
@@ -39,7 +40,7 @@ class ItemsTableSeeder extends Seeder
                 'description' => '高速で信頼性の高いハードディスク',
                 'condition' => '目立った傷や汚れなし',
                 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/HDD+Hard+Disk.jpg',
-                'category_ids' => [2], // 1つでも配列で書く
+                'category_names' => ['家電'],
             ],
             [
                 'name' => '玉ねぎ3束',
@@ -47,7 +48,7 @@ class ItemsTableSeeder extends Seeder
                 'description' => '新鮮な玉ねぎ3束のセット',
                 'condition' => 'やや傷や汚れあり',
                 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/iLoveIMG+d.jpg',
-                'category_ids' => [10],
+                'category_names' => ['キッチン'],
             ],
             [
                 'name' => '革靴',
@@ -55,7 +56,7 @@ class ItemsTableSeeder extends Seeder
                 'description' => 'クラシックなデザインの革靴',
                 'condition' => '状態が悪い',
                 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Leather+Shoes+Product+Photo.jpg',
-                'category_ids' => [1, 5],
+                'category_names' => ['ファッション', 'メンズ'],
             ],
             [
                 'name' => 'ノートPC',
@@ -63,7 +64,7 @@ class ItemsTableSeeder extends Seeder
                 'description' => '高性能なノートパソコン',
                 'condition' => '良好',
                 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Living+Room+Laptop.jpg',
-                'category_ids' => [2],
+                'category_names' => ['家電'],
             ],
             [
                 'name' => 'マイク',
@@ -71,7 +72,7 @@ class ItemsTableSeeder extends Seeder
                 'description' => '高音質のレコーディング用マイク',
                 'condition' => '目立った傷や汚れなし',
                 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Music+Mic+4632231.jpg',
-                'category_ids' => [2],
+                'category_names' => ['家電'],
             ],
             [
                 'name' => 'ショルダーバッグ',
@@ -79,7 +80,7 @@ class ItemsTableSeeder extends Seeder
                 'description' => 'おしゃれなショルダーバッグ',
                 'condition' => 'やや傷や汚れあり',
                 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Purse+fashion+pocket.jpg',
-                'category_ids' => [1, 4],
+                'category_names' => ['ファッション', 'レディース'],
             ],
             [
                 'name' => 'タンブラー',
@@ -87,7 +88,7 @@ class ItemsTableSeeder extends Seeder
                 'description' => '使いやすいタンブラー',
                 'condition' => '状態が悪い',
                 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Tumbler+souvenir.jpg',
-                'category_ids' => [10],
+                'category_names' => ['キッチン'],
             ],
             [
                 'name' => 'コーヒーミル',
@@ -95,7 +96,7 @@ class ItemsTableSeeder extends Seeder
                 'description' => '手動のコーヒーミル',
                 'condition' => '良好',
                 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Waitress+with+Coffee+Grinder.jpg',
-                'category_ids' => [3, 10],
+                'category_names' => ['インテリア','キッチン'],
             ],
             [
                 'name' => 'メイクセット',
@@ -103,7 +104,7 @@ class ItemsTableSeeder extends Seeder
                 'description' => '便利なメイクアップセット',
                 'condition' => '目立った傷や汚れなし',
                 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/%E5%A4%96%E5%87%BA%E3%83%A1%E3%82%A4%E3%82%AF%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%82%BB%E3%83%83%E3%83%88.jpg',
-                'category_ids' => [6],
+                'category_names' => ['コスメ'],
             ],
         ];
 
@@ -126,9 +127,14 @@ class ItemsTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
 
-            // 複数カテゴリを中間テーブルに紐付け
-            if (isset($item['category_ids']) && is_array($item['category_ids'])) {
-            $newItem->categories()->attach($item['category_ids']);
+            // カテゴリ名を元に実際のカテゴリIDを取得し、紐付け
+            if (isset($item['category_names']) && is_array($item['category_names'])) {
+                $itemCategories = $categories->filter(function($category) use ($item) {
+                    return in_array($category->name, $item['category_names']);
+                })->pluck('id'); // IDのみを抽出
+
+                // 取得したIDを中間テーブルに紐付け
+                $newItem->categories()->attach($itemCategories);
             }
         }
     }

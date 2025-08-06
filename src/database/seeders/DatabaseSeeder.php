@@ -15,18 +15,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(1)->create([
+        $testUser = User::factory(1)->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => bcrypt('password'),
         ]);
-        // 1件のダミーユーザーを作成
+        // テストユーザーを作成
+
+        Address::factory(1)->create([
+            'user_id' => $testUser->first()->id,
+        ]);
 
         $this->call([
             CategoriesTableSeeder::class,
             ItemsTableSeeder::class,
         ]);
-
-        Address::factory(1)->create();
     }
 }

@@ -26,8 +26,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::post('/sell', [ItemController::class, 'store'])->name('items.store'); // 商品出品処理
 
     // いいね機能
-    Route::post('/items/{item}/like', [LikeController::class, 'store'])->name('likes.store'); // いいね追加
-    Route::delete('/items/{item}/like', [LikeController::class, 'destroy'])->name('likes.destroy'); // いいね削除
+    Route::post('/items/{item}/like', [LikeController::class, 'store'])->name('likes.store'); // いいね付与・削除
 
     // コメント機能
     Route::post('/items/{item}/comment', [CommentController::class, 'store'])->name('comments.store'); // コメント投稿

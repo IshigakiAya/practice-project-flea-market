@@ -14,4 +14,3 @@ yarn-error.log
 /.idea
 /.vscode
 docker/mysql/data/
-# MySQL の永続化データを無視

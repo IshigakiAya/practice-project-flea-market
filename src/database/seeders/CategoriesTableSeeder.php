@@ -32,7 +32,7 @@ class CategoriesTableSeeder extends Seeder
         ];
 
         foreach ($contents as $content) {
-            Category::firstOrCreate(['content' => $content]);
+            Category::firstOrCreate(['name' => $content]);
         }
     }
 }
